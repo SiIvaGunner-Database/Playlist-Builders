@@ -51,7 +51,7 @@ function rebuildPlaylist()
   i = 0;
   for (i in ripsToAdd)
   {
-    count = i + 1;
+    count = (parseInt(i) + 1).toString();
     Logger.log("#" + count + " - Add: " + ripsToAdd[i]);
     console.log("#" + count + " - Add: " + ripsToAdd[i]);
 
