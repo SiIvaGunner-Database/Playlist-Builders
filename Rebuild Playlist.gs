@@ -42,7 +42,6 @@ function rebuildPlaylist()
     
     count = i + 1;
     Logger.log("#" + count + " - Delete: " + id);
-    console.log("#" + count + " - Delete: " + id);
     
     YouTube.PlaylistItems.remove(id);
   }
@@ -53,7 +52,6 @@ function rebuildPlaylist()
   {
     count = (parseInt(i) + 1).toString();
     Logger.log("#" + count + " - Add: " + ripsToAdd[i]);
-    console.log("#" + count + " - Add: " + ripsToAdd[i]);
 
     YouTube.PlaylistItems.insert
     ({
