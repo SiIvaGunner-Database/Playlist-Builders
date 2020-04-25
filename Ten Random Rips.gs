@@ -1,8 +1,8 @@
-function rebuildPlaylist()
+function rebuildTenRipsPlaylist()
 {
   var playlistId = "PLn8P5M1uNQk4336xHrr0boOX-3fLJGeLP";
   var spreadsheet = SpreadsheetApp.openById("1Ay8mIwv99hBDSym0o_vol0tgRyUtRFH02fEEM79v_64");
-  var ripList = spreadsheet.getSheetByName("SiIvaGunner");
+  var ripList = spreadsheet.getSheetByName("List of Rips");
   var ripCount = spreadsheet.getSheetByName("Summary").getRange("B1").getValue();
   var ripsToAdd = [];
   var duplicate = false;
@@ -68,12 +68,10 @@ function rebuildPlaylist()
   }
 }
 
-
-
 // Create a trigger to rebuild the playlist daily.
-function rebuildPlaylistTrigger()
+function rebuildTenRipsPlaylisttTrigger()
 {
-  ScriptApp.newTrigger('rebuildPlaylist')
+  ScriptApp.newTrigger('rebuildTenRipsPlaylist')
   .timeBased()
   .everyDays(1)
   .atHour(0)
