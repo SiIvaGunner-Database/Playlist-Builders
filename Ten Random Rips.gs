@@ -67,13 +67,3 @@ function rebuildTenRipsPlaylist()
     }, "snippet");
   }
 }
-
-// Create a trigger to rebuild the playlist daily.
-function rebuildTenRipsPlaylisttTrigger()
-{
-  ScriptApp.newTrigger('rebuildTenRipsPlaylist')
-  .timeBased()
-  .everyDays(1)
-  .atHour(0)
-  .create();
-}

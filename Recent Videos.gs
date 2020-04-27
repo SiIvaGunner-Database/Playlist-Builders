@@ -44,13 +44,3 @@ function rebuildRecentVidsPlaylist()
     }, "snippet");
   }
 }
-
-// Create a trigger to rebuild the playlist daily.
-function rebuildRecentVidsPlaylistTrigger()
-{
-  ScriptApp.newTrigger('rebuildRecentVidsPlaylist')
-  .timeBased()
-  .everyDays(1)
-  .atHour(0)
-  .create();
-}
