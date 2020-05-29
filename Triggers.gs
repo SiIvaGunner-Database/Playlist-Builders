@@ -11,6 +11,6 @@ function rebuildPlaylistsTrigger()
   ScriptApp.newTrigger('rebuildPlaylists')
   .timeBased()
   .everyDays(1)
-  .atHour(0)
+  .atHour(23)
   .create();
 }

@@ -1,7 +1,7 @@
 function rebuildTenRipsPlaylist()
 {
   var playlistId = "PLn8P5M1uNQk4336xHrr0boOX-3fLJGeLP";
-  var spreadsheet = SpreadsheetApp.openById("1Ay8mIwv99hBDSym0o_vol0tgRyUtRFH02fEEM79v_64");
+  var spreadsheet = SpreadsheetApp.openById("1B7b9jEaWiqZI8Z8CzvFN1cBvLVYwjb5xzhWtrgs4anI");
   var ripList = spreadsheet.getSheetByName("List of Rips");
   var ripCount = spreadsheet.getSheetByName("Summary").getRange("B1").getValue();
   var ripsToAdd = [];
@@ -30,11 +30,7 @@ function rebuildTenRipsPlaylist()
   }
   
   // Empty the current playlist.
-  var playlistResponse = YouTube.PlaylistItems.list('snippet', 
-                                                    {
-                                                      playlistId: playlistId,
-                                                      maxResults: 20
-                                                    });
+  var playlistResponse = YouTube.PlaylistItems.list('snippet', {playlistId: playlistId, maxResults: 20});
 
   for (i = 0; i < playlistResponse.items.length; i++)
   {
@@ -53,17 +49,6 @@ function rebuildTenRipsPlaylist()
     count = (parseInt(i) + 1).toString();
     Logger.log("#" + count + " - Add: " + ripsToAdd[i]);
 
-    YouTube.PlaylistItems.insert
-    ({
-      snippet: 
-      {
-        playlistId: playlistId,
-        resourceId: 
-        {
-          kind: "youtube#video",
-          videoId: ripsToAdd[i]
-        }
-      }
-    }, "snippet");
+    YouTube.PlaylistItems.insert({snippet: {playlistId: playlistId, resourceId: {kind: "youtube#video", videoId: ripsToAdd[i]}}}, "snippet");
   }
 }
