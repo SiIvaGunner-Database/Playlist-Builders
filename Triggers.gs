@@ -5,10 +5,10 @@ function rebuildPlaylists()
   rebuildRecentVidsPlaylist();
 }
 
-// Creates a trigger to call once a day after midnight.
+// Creates a trigger to call once a day.
 function rebuildPlaylistsTrigger()
 {
-  ScriptApp.newTrigger('rebuildPlaylists')
+  ScriptApp.newTrigger("rebuildPlaylists")
   .timeBased()
   .everyDays(1)
   .atHour(23)

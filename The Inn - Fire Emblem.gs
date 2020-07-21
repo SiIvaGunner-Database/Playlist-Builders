@@ -1,7 +1,7 @@
 // The Inn - Fire Emblem
 function theInnFireEmblem() 
 {
-  for (i = 0; i < 155; i++)
+  for (var i = 0; i < 155; i++)
   {
     YouTube.PlaylistItems.insert
     ({
@@ -21,7 +21,7 @@ function theInnFireEmblem()
 // The Inn - Fire Emblem
 function theInnFireEmblemTrigger()
 {
-  ScriptApp.newTrigger('theInnFireEmblem')
+  ScriptApp.newTrigger("theInnFireEmblem")
   .timeBased()
   .everyDays(1)
   .atHour(0)
