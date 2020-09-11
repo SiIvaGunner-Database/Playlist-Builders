@@ -11,7 +11,7 @@ function rebuildRecentVidsPlaylist()
   {
     var id = playlistResponse.items[i].id;
     count++;
-    Logger.log("#" + count + " - Delete: " + id);
+    Logger.log("#" + count + " - " + id);
     YouTube.PlaylistItems.remove(id);
   }
 
@@ -25,7 +25,7 @@ function rebuildRecentVidsPlaylist()
   {
     var videoId = playlistResponse.items[i].snippet.resourceId.videoId;
     count++;
-    Logger.log("#" + count + " - Add: " + videoId);
+    Logger.log("#" + count + " - " + videoId);
     YouTube.PlaylistItems.insert({snippet: {playlistId: playlistId, resourceId: {kind: "youtube#video", videoId: videoId}}}, "snippet");
   }
 }

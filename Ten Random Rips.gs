@@ -2,8 +2,7 @@ function rebuildTenRipsPlaylist()
 {
   var playlistId = "PLn8P5M1uNQk4336xHrr0boOX-3fLJGeLP";
   var spreadsheetId = "1B7b9jEaWiqZI8Z8CzvFN1cBvLVYwjb5xzhWtrgs4anI";
-  var ripSheet = SpreadsheetApp.openById(spreadsheetId).getSheetByName("SiIvaGunner");
-  var ripCount = ripSheet.getLastRow() - 1;
+  var ripSheet = SpreadsheetApp.openById(spreadsheetId)
   var ripIds = [];
   var count = 0;
   
@@ -14,32 +13,51 @@ function rebuildTenRipsPlaylist()
   {
     var id = playlistResponse.items[i].id;
     count = parseInt(i) + 1;
-    Logger.log("#" + count + " - Delete: " + id);
+    Logger.log("#" + count + " - " + id);
     YouTube.PlaylistItems.remove(id);
   }
   
   // Find ten random rips.
   for (var i = 0; i < 10; i++)
   {
-    var row = Math.floor((Math.random() * ripCount) + 2);
-    var ripId = ripSheet.getRange(row, 3).getValue();
-    ripIds.push(ripId);
+    var channelRand = Math.floor((Math.random() * 5) + 1);
     
-    for (var k in ripIds)
+    if (channelRand == 1)
+      var channelName = "VvvvvaVvvvvvr";
+    else if (channelRand == 2)
+      var channelName = "TimmyTurnersGrandDad";
+    else
+      var channelName = "SiIvaGunner";
+    
+    Logger.log("#" + channelRand + " - " + channelName);
+    
+    var channelSheet = ripSheet.getSheetByName(channelName);
+    var ripCount = channelSheet.getLastRow() - 1;
+    var row = Math.floor((Math.random() * ripCount) + 2);
+    var ripId = channelSheet.getRange(row, 1).getValue();
+    var ripStatus = channelSheet.getRange(row, 4).getValue();
+    
+    if (ripStatus == "Public" || ripStatus == "Unlisted")
     {
-      if (ripIds[k] == ripId && k != ripIds.length - 1)
+      ripIds.push(ripId);
+      
+      for (var k in ripIds)
       {
-        ripIds.pop();
-        i--;
+        if (ripIds[k] == ripId && k != ripIds.length - 1)
+        {
+          ripIds.pop();
+          i--;
+        }
       }
     }
+    else i--;
   }
 
   // Add the rips to the playlist.
   for (var i in ripIds)
   {
     count = parseInt(i) + 1;
-    Logger.log("#" + count + " - Add: " + ripIds[i]);
-    YouTube.PlaylistItems.insert({snippet: {playlistId: playlistId, resourceId: {kind: "youtube#video", videoId: ripsToAdd[i]}}}, "snippet");
+    Logger.log("#" + count + " - " + ripIds[i]);
+    YouTube.PlaylistItems.insert({snippet: {playlistId: playlistId, resourceId: {kind: "youtube#video", videoId: ripIds[i]}}}, "snippet");
   }
 }
