@@ -17,9 +17,3 @@ See also: [Ten Random Rips Playlist](https://www.youtube.com/playlist?list=PLn8P
 "The Inn - Fire Emblem" is a high quality rip of "The Inn" from Fire Emblem.
 
 See also: [The Inn - Fire Emblem Playlist](https://www.youtube.com/playlist?list=PLn8P5M1uNQk7hJWh8jPlpbhvvxex_QfI5)
-
-### External Links
-
-* [Project Script](https://script.google.com/d/1riS6z4TMmDtkjw5n4u0FARZ7ipjbBZNdeyml1i8lZiXD2dE0GdpPYUlR/edit?usp=sharing)
-
-* [SiIvaGunner Wiki](https://siivagunner.fandom.com/wiki/SiIvaGunner_Wikia)
