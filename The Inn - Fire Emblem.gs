@@ -1,15 +1,11 @@
 // The Inn - Fire Emblem
-function theInnFireEmblem() 
-{
-  for (var i = 0; i < 155; i++)
-  {
+function theInnFireEmblem()  {
+  for (var i = 0; i < 155; i++) {
     YouTube.PlaylistItems.insert
     ({
-      snippet: 
-      {
+      snippet:  {
         playlistId: "PLn8P5M1uNQk7hJWh8jPlpbhvvxex_QfI5", // Fire Emblem
-        resourceId: 
-        {
+        resourceId:  {
           kind: "youtube#video",
           videoId: "NzoneDE0A2o" // The Inn
         }
@@ -19,8 +15,7 @@ function theInnFireEmblem()
 }
 
 // The Inn - Fire Emblem
-function theInnFireEmblemTrigger()
-{
+function theInnFireEmblemTrigger() {
   ScriptApp.newTrigger("theInnFireEmblem")
   .timeBased()
   .everyDays(1)
