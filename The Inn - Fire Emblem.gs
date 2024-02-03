@@ -1,5 +1,5 @@
 /**
- * The Inn - Fire Emblem
+ * "The Inn - Fire Emblem" is a high quality rip of "The Inn" from Fire Emblem.
  */
 function theInnFireEmblem() {
   // The Inn - Fire Emblem
@@ -19,7 +19,7 @@ function theInnFireEmblem() {
 }
 
 /**
- * The Inn - Fire Emblem
+ * "The Inn - Fire Emblem" is the highest quality rip of "The Inn" from Fire Emblem.
  */
 function theInnFireTrigger() {
   ScriptApp.newTrigger("theInnFireEmblem")

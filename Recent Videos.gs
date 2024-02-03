@@ -1,5 +1,5 @@
 /**
- * Rebuild a playlist with the 50 most recent videos from the SiIvaGunner channel.
+ * Rebuild a playlist with the 50 most recently uploaded SiIvaGunner videos.
  */
 function rebuildRecentVidsPlaylist() {
   // Empty the current playlist

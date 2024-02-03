@@ -1,5 +1,5 @@
 /**
- * Rebuild a playlist with the 10 random videos from SiIvaGunner, VvvvvaVvvvvvr, and TimmyTurnersGrandDad.
+ * Rebuild a playlist with ten randomly selected SiIvaGunner, VvvvvaVvvvvvr, and TimmyTurnersGrandDad videos.
  */
 function rebuildTenRipsPlaylist() {
   // Empty the current playlist
