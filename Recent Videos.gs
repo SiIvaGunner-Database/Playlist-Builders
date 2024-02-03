@@ -1,28 +1,34 @@
+/**
+ * Rebuild a playlist with the 50 most recent videos from the SiIvaGunner channel.
+ */
 function rebuildRecentVidsPlaylist() {
-  var playlistId = "PLn8P5M1uNQk68YEXoZYybM41Kc8GK8-8q";
-  var channelId = "UC9ecwl3FTG66jIKA9JRDtmg";
-  
-  // Empty the current playlist.
-  var playlistResponse = YouTube.PlaylistItems.list("snippet", {playlistId: playlistId, maxResults: 50});
-  var count = 0;
+  // Empty the current playlist
+  const playlistId = "PLn8P5M1uNQk68YEXoZYybM41Kc8GK8-8q"
+  const playlistResponse = YouTube.PlaylistItems.list("snippet", { "playlistId": playlistId, "maxResults": 50 })
 
-  for (var i = 0; i < playlistResponse.items.length; i++) {
-    var id = playlistResponse.items[i].id;
-    count++;
-    Logger.log("#" + count + " - " + id);
-    YouTube.PlaylistItems.remove(id);
-  }
+  playlistResponse.items.forEach((item, index) => {
+    console.log(`#${index + 1} - remove ${item.id}`)
+    YouTube.PlaylistItems.remove(item.id)
+  })
 
-  // Add the new rips to the playlist.
-  var results = YouTube.Channels.list("contentDetails", {id: channelId});
-  var uploadsPlaylistId = results.items[0].contentDetails.relatedPlaylists.uploads;
-  var playlistResponse = YouTube.PlaylistItems.list("snippet", {playlistId: uploadsPlaylistId, maxResults: 50});
-  var count = 0;
-  
-  for (var i = 0; i < playlistResponse.items.length; i++) {
-    var videoId = playlistResponse.items[i].snippet.resourceId.videoId;
-    count++;
-    Logger.log("#" + count + " - " + videoId);
-    YouTube.PlaylistItems.insert({snippet: {playlistId: playlistId, resourceId: {kind: "youtube#video", videoId: videoId}}}, "snippet");
-  }
+  // Add the new rips to the playlist
+  const channelId = "UC9ecwl3FTG66jIKA9JRDtmg"
+  const channelResults = YouTube.Channels.list("contentDetails", { "id": channelId })
+  const uploadsPlaylistId = channelResults.items[0].contentDetails.relatedPlaylists.uploads
+  const uploadsPlaylistResponse = YouTube.PlaylistItems.list("snippet", { "playlistId": uploadsPlaylistId, "maxResults": 50 })
+
+  uploadsPlaylistResponse.items.forEach((item, index) => {
+    const videoId = item.snippet.resourceId.videoId
+    console.log(`#${index + 1} - insert ${videoId}`)
+    const insertOptions = {
+      "snippet": {
+        "playlistId": playlistId,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": videoId
+        }
+      }
+    }
+    YouTube.PlaylistItems.insert(insertOptions, "snippet")
+  })
 }
