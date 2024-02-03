@@ -8,7 +8,7 @@ See also: [Recent SiIvaGunner Videos Playlist](https://www.youtube.com/playlist?
 
 ### Ten Random Rips
 
-Rebuilds a YouTube playlist with ten randomly selected SiIvaGunner videos every day.
+Rebuilds a YouTube playlist with ten randomly selected SiIvaGunner, VvvvvaVvvvvvr, and TimmyTurnersGrandDad videos every day.
 
 See also: [Ten Random Rips Playlist](https://www.youtube.com/playlist?list=PLn8P5M1uNQk4336xHrr0boOX-3fLJGeLP)
 
